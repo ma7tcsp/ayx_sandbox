@@ -1,0 +1,30 @@
+<Configuration>
+    <MappedFolders>
+        <MappedFolder>
+        <!-- Create a drive mapping to the scripts -->
+            <HostFolder>C:\Users\AYX106161\OneDrive - alteryx.com\Documents\sandbox1</HostFolder>
+            <SandboxFolder>C:\Users\WDAGUtilityAccount\Desktop\Install</SandboxFolder>
+            <ReadOnly>true</ReadOnly>
+        </MappedFolder>
+		<MappedFolder>
+        <!-- Create a drive mapping to your documents -->
+            <HostFolder>C:\Users\AYX106161\OneDrive - alteryx.com\Documents</HostFolder>
+            <SandboxFolder>C:\Users\WDAGUtilityAccount\Documents</SandboxFolder>
+            <ReadOnly>true</ReadOnly>
+        </MappedFolder>
+		<MappedFolder>
+        <!-- Create a drive mapping to get notepad working -->
+            <HostFolder>C:\Windows\System32</HostFolder>
+            <SandboxFolder>C:\Users\WDAGUtilityAccount\tmp_install</SandboxFolder>
+            <ReadOnly>true</ReadOnly>
+        </MappedFolder>
+         
+    </MappedFolders>
+	<LogonCommand>
+	 <!-- install and config the rest of the system -->
+     <Command>powershell -executionpolicy unrestricted -command "start powershell { -file C:\Users\WDAGUtilityAccount\Desktop\Install\sandbox1.ps1}"</Command>
+    </LogonCommand>
+    <ClipboardRedirection>true</ClipboardRedirection>
+    <MemoryInMB>8192</MemoryInMB>
+    
+</Configuration>
