@@ -3,13 +3,12 @@ Spin up a Windows Sandbox and automatically install an Alteryx Desktop version o
 
 ## Instructions
 
-- Copy the contents of the repo somewhere on your local machine. 
-- Copy the contents of the repo somewhere on your local machine. 
-- Place a copy of the Alteryx Installer in the same folder. 
+- Download the contents of the repo somewhere on your local machine. 
+- Place a copy of the Alteryx Installer in the same folder. (eg *AlteryxInstallx64_2025.2.1.24.exe*)
 - Run the ***SandboxTemplateSetup.ps1*** script (right-click, *Run with PowerShell*) to generate the Windows Sandbox configuration file. (This script runs as an admin, and if you're asked to, allow it when it runs)
 - Run the resulant wsb file to launch the sandbox environment. 
 - Wait while everything installs, usually about 15 mins. 
-- Put the kettle on
+- Put the kettle on and have a cuppa.
 
 ## How
 
