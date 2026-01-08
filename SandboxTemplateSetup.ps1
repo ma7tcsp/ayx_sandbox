@@ -5,8 +5,8 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 }
 
 #start the process
-cls
-function Write-HostColored2(){[CmdletBinding()]param([parameter(Position=0, ValueFromPipeline=$true)] [string[]] $t,[switch] $x,[ConsoleColor] $bc = $host.UI.RawUI.BackgroundColor,[ConsoleColor] $fc = $host.UI.RawUI.ForegroundColor);begin{if ($t -ne $null){$t = "$t"}};process {if ($t) {$cfc = $fc;$cbc = $bc;$ks = $t.split("#");$p = $false;foreach($k in $ks) {if (-not $p -and $k -match '^([a-z]*)(:([a-z]+))?$') {try {$cfc = [ConsoleColor] $matches[1];$p = $true} catch {}if ($matches[3]) {try {$cbc = [ConsoleColor] $matches[3];$p = $true} catch {}}if ($p) {continue}};$p = $false;if ($k) {$argsHash = @{};if ([int] $cfc -ne -1) { $argsHash += @{ 'ForegroundColor' = $cfc } };if ([int] $cbc -ne -1) { $argsHash += @{ 'BackgroundColor' = $cbc } };Write-Host -NoNewline @argsHash $k} $cfc = $fc;$cbc = $bc}} if (-not $x) { write-host }}}
+Clear-Host
+function Write-HostColored2(){[CmdletBinding()]param([parameter(Position=0, ValueFromPipeline=$true)] [string[]] $t,[switch] $x,[ConsoleColor] $bc = $host.UI.RawUI.BackgroundColor,[ConsoleColor] $fc = $host.UI.RawUI.ForegroundColor);begin{if ($null -ne $t){$t = "$t"}};process {if ($t) {$cfc = $fc;$cbc = $bc;$ks = $t.split("#");$p = $false;foreach($k in $ks) {if (-not $p -and $k -match '^([a-z]*)(:([a-z]+))?$') {try {$cfc = [ConsoleColor] $matches[1];$p = $true} catch {}if ($matches[3]) {try {$cbc = [ConsoleColor] $matches[3];$p = $true} catch {}}if ($p) {continue}};$p = $false;if ($k) {$argsHash = @{};if ([int] $cfc -ne -1) { $argsHash += @{ 'ForegroundColor' = $cfc } };if ([int] $cbc -ne -1) { $argsHash += @{ 'BackgroundColor' = $cbc } };Write-Host -NoNewline @argsHash $k} $cfc = $fc;$cbc = $bc}} if (-not $x) { write-host }}}
 
 Write-HostColored2 "#darkcyan#Sandbox Setup`n#"
 
@@ -38,8 +38,8 @@ $sandbox_folder = (Get-Location).Path
 Write-HostColored2 "Location of current sandbox files: #cyan#$sandbox_folder#"
 
 
-$input = Read-Host "Press Enter to accept current path or enter a new path"
-$sandbox_folder = if ([string]::IsNullOrWhiteSpace($input)) {
+$inputpath = Read-Host "Press Enter to accept current path or enter a new path"
+$sandbox_folder = if ([string]::IsNullOrWhiteSpace($inputpath)) {
     $sandbox_folder
 } else {
     $input
